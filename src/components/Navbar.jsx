@@ -9,6 +9,9 @@ import { Link } from "react-router-dom";
 //Utils
 import { logo } from "../utils/constants";
 
+//Components
+import SearchBar from "./SearchBar";
+
 const Navbar = () => {
   return (
     <Stack
@@ -25,6 +28,7 @@ const Navbar = () => {
       <Link to="/" style={{ display: "flex", alignItems: "center" }}>
         <img src={logo} alt="logo" height={45} />
       </Link>
+      <SearchBar />
     </Stack>
   );
 };
