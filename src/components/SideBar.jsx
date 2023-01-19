@@ -9,9 +9,7 @@ import { categories } from "../utils/constants";
 //Components
 import Videos from "./Videos";
 
-const SideBar = () => {
-  const [selectedCategory, setSelectedCategory] = useState("New");
-
+const SideBar = ({ selectedCategory, setSelectedCategory }) => {
   return (
     <Stack
       direction="row"
