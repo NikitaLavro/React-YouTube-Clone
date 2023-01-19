@@ -5,6 +5,7 @@ import { Box, Stack, Typography } from "@mui/material";
 
 //Components
 import SideBar from "./SideBar";
+import Videos from "./Videos";
 
 const Feed = () => {
   return (
@@ -24,6 +25,17 @@ const Feed = () => {
         >
           Copyright 2022, Media
         </Typography>
+      </Box>
+      <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
+        <Typography
+          variant="h4"
+          fontWeight="bold"
+          md={2}
+          sx={{ color: "white" }}
+        >
+          New <span style={{ color: "#F31503" }}>Videos</span>
+        </Typography>
+        <Videos />
       </Box>
     </Stack>
   );
