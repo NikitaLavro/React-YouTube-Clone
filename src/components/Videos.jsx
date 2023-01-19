@@ -1,8 +1,23 @@
 import React from "react";
 
+//MUI
+import { Stack, Box } from "@mui/material";
+
+//Components
+import { VideoCard, ChannelCard } from "./";
+
 const Videos = ({ videos }) => {
   console.log(videos);
-  return <div>videos</div>;
+  return (
+    <Stack direction="row" flexWrap="wrap" justifyContent="start" gap={2}>
+      {videos.map((item, i) => (
+        <Box key={i}>
+          {item.id.videoId && <VideoCard video={item} />}
+          {item.id.channelId && <ChannelCard channelDetail={item} />}
+        </Box>
+      ))}
+    </Stack>
+  );
 };
 
 export default Videos;
