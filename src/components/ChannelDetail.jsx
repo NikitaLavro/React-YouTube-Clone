@@ -7,8 +7,21 @@ import { useParams } from "react-router-dom";
 import { Box } from "@mui/material";
 import { Videos, ChannelCard } from "/";
 
+//API
+import { fetchFromApi } from "../utils/fetchFromApi";
+
 const ChannelDetail = () => {
-  return <div>ChannelDetail</div>;
+  const [channelDetails, setChannelDetails] = useState(null);
+  const { id } = useParams();
+
+  useEffect(() => {
+    fetchFromApi(`channels?part="snippet&id=${id}`).then((data) =>
+      setChannelDetails(data?.items[0])
+    );
+  }, [id]);
+  console.log(channelDetails);
+
+  return <div>{id}</div>;
 };
 
 export default ChannelDetail;
