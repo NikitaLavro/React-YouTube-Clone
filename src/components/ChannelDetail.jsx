@@ -26,7 +26,21 @@ const ChannelDetail = () => {
   }, [id]);
   console.log(videos);
 
-  return <div>{id}</div>;
+  return (
+    <Box minHeight="95vh">
+      <Box>
+        <div
+          style={{
+            zIndex: 10,
+            height: "300px",
+            background:
+              "linear-gradient(170deg, rgba(104,0,255,1) 0%, rgba(201,0,195,1) 100%)",
+          }}
+        />
+        <ChannelCard channelDetails={channelDetails} />
+      </Box>
+    </Box>
+  );
 };
 
 export default ChannelDetail;

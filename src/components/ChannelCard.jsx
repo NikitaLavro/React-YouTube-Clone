@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 //Utils
 import { demoProfilePicture } from "../utils/constants";
 
-const ChannelCard = ({ channelDetail }) => {
+const ChannelCard = ({ channelDetails }) => {
   return (
     <Box
       sx={{
@@ -24,7 +24,7 @@ const ChannelCard = ({ channelDetail }) => {
         margin: "auto",
       }}
     >
-      <Link to={`/channel/${channelDetail?.id?.channelId}`}>
+      <Link to={`/channel/${channelDetails?.id?.channelId}`}>
         <CardContent
           sx={{
             display: "flex",
@@ -36,10 +36,10 @@ const ChannelCard = ({ channelDetail }) => {
         >
           <CardMedia
             image={
-              channelDetail?.snippet?.thumbnails?.high?.url ||
+              channelDetails?.snippet?.thumbnails?.high?.url ||
               demoProfilePicture
             }
-            alt={channelDetail?.snippet?.title}
+            alt={channelDetails?.snippet?.title}
             style={{
               borderRadius: "50%",
               height: "180px",
@@ -49,12 +49,12 @@ const ChannelCard = ({ channelDetail }) => {
             }}
           />
           <Typography variant="h6">
-            {channelDetail?.snippet?.title}
+            {channelDetails?.snippet?.title}
             <CheckCircle sx={{ fontSize: 14, color: "gray", ml: "5px" }} />
-            {channelDetail?.statistics?.subscriberCount && (
+            {channelDetails?.statistics?.subscriberCount && (
               <Typography>
                 {parseInt(
-                  channelDetail?.statistics?.subscriberCount
+                  channelDetails?.statistics?.subscriberCount
                 ).toLocaleString()}{" "}
                 Subscribers
               </Typography>
