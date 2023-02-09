@@ -16,17 +16,21 @@ import { CheckCircle } from "@mui/icons-material";
 import { fetchFromApi } from "../utils/fetchFromApi";
 
 //Components
-import { Video } from "./";
+import { Videos } from "./";
 
 const VideoDetail = () => {
   const [videoDetail, setVideoDetail] = useState(null);
+  const [relatedVideos, setRelatedVideos] = useState(null);
   const { id } = useParams();
 
   useEffect(() => {
     fetchFromApi(`videos?part=snippet,statistics&id=${id}`).then((data) =>
       setVideoDetail(data.items[0])
     );
-  });
+    fetchFromApi(`search?part=snippet&relatedToVideoId=${id}&type=video`).then(
+      (data) => setRelatedVideos(data.items)
+    );
+  }, []);
 
   if (videoDetail) {
     var {
@@ -76,6 +80,9 @@ const VideoDetail = () => {
               </Stack>
             </Stack>
           </Box>
+        </Box>
+        <Box px={2} py={{ md: 1, xs: 5 }} justifyContent="center">
+          <Videos videos={relatedVideos} direction="column" />
         </Box>
       </Stack>
     </Box>
