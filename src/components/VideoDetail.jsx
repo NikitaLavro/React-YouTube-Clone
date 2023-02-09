@@ -28,10 +28,12 @@ const VideoDetail = () => {
     );
   });
 
-  const {
-    snippet: { title, channelId, channelTitle },
-    statistics: { viewCount, lineCount },
-  } = videoDetail;
+  if (videoDetail) {
+    var {
+      snippet: { title, channelId, channelTitle },
+      statistics: { viewCount, lineCount },
+    } = videoDetail;
+  }
 
   return (
     <Box minHeight="95vh">
