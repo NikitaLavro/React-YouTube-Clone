@@ -15,7 +15,6 @@ const SearchBar = () => {
     e.preventDefault();
 
     if (searchTerm) {
-      console.log(searchTerm);
       navigate(`/search/${searchTerm}`);
       setSearchTerm("");
     }
